@@ -283,7 +283,6 @@ class DyRep_update(nn.Module):
                         print(list(node_degree.keys()))
                         raise
                     y = self.S[j, :, rel]
-                    y = y * (1 - self.decay_rate)
                     b = 0 if degree[rel] == 0 else 1. / (float(degree[rel]) + 1e-7)
                     if k > 0 and self.A[u, v, rel] > 0:  # Communication event, Association exists
                         y[i] = b + lambda_uv_t
